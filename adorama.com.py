@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+
 from muchview import MuchViewEngine
 obj = MuchViewEngine('http://www.adorama.com/Reviews/pwr/product-reviews/c/index.html')
 obj.source_name = 'adorama.com'
@@ -17,14 +18,17 @@ obj.agent_items('//div[@class="prMiniSiteProductListingTitle"]/a','text()', '@hr
                             title = '//title/text()',
                             images = dict(path='//img[@class="prMiniSiteProductImage"]',key='@alt', value='@src'),
                             desc = '//div[@id="prMiniSiteProductDescription"]/descendant::text()',
+
                             #offical_url = '//span[@class="brand"]/ancestor::a[1]/@href',
                             cates = '//span[@class="prMiniSiteProductAreaValue"]/descendant::text()',
                             spec = dict(path='//div[@class="prReviewPoints"]/div/div[@class="prSummaryKey"]',key='text()',value='following::div[@class="prSummaryValue"]/text()'),
                             rating = '//div[@class="prSummaryAverageRatingDecimal"]/text()',
+
                             #price = '//div[@class="soft_this"]//strong[text()="Price:"]/following::text()[1]',
                             user_review = dict( path='//div[@id="prMiniSiteIndividualReviews"]/div[@class="prReviewWrap "]', 
                             author='div[@class="prReviewAuthor"]/span[@class="prReviewAuthorLocation"]/span/text()',
                             author_comment='div[@class="prReviewText"]/p[@class="prComments"]/descendant::text()',
+
                             #rating='',
                             review_datetime='div[@class="prReviewAuthor"]/span[@class="prReviewAuthorDate"]/span/text()',
                             pros_path='div[@class="prReviewPoints"]/div/div[@class="prReviewKey"]',
